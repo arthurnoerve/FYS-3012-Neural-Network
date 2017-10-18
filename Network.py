@@ -32,16 +32,20 @@ class UniformNetwork(Network):
         s = '\n'.join(map(str, self.layers))
         return s
 
-    # trains network, ie. sets weights
-    def train(self, training_data, labels):
-        return true
-
     def augument(self, input):
         return np.insert(input, 0,1)
 
     def deaugument(self, input):
         return np.delete(input, 0)
 
+    # trains network, ie. sets weights
+    def train(self, training_data, labels, epoch, learning_rate,):
+
+
+        for i in range(0,epoch):
+
+
+        return true
 
 
     # Returns network output for given unknown data
@@ -52,7 +56,7 @@ class UniformNetwork(Network):
 
         y = self.augument(self.layers[0].resolve(input))
 
-        for n in self.layers[1:]:
-            y = self.augument(n.resolve(y))
+        for l in self.layers[1:]:
+            y = self.augument(l.resolve(y))
 
         return self.deaugument(y)
