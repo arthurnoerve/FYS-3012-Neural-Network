@@ -29,6 +29,10 @@ class UniformLayer(Layer):
 
 
     def resolve(self, input):
-        #TODO: calculate layer output
-
         return [ n.resolve(input) for n in self.neurons ]
+
+    def complete_resolve(self, input):
+        tuples = [ n.complete_resolve(input) for n in self.neurons ]
+        #print(tuples)
+        #print()
+        return ( [t[0] for t in tuples],[t[1] for t in tuples] )

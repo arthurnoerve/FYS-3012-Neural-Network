@@ -17,8 +17,9 @@ class Neuron:
         return str(self.input_dim)
 
 
+
+
     def resolve(self, input):
-        #TODO: calculate neuron output
         #if len(input) != self.input_dim:
         #    return;
 
@@ -26,3 +27,7 @@ class Neuron:
         #print("weights: "+ str(np.shape(self.weights)) + "\n")
 
         return np.dot(input,self.weights)
+
+    def complete_resolve(self, input):
+        v = np.dot(input,self.weights)
+        return (v, self.activation_function.f(v))
